@@ -4,8 +4,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Image from 'react-bootstrap/Image';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button'
+import View from './View';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 // import Player from './Player';
@@ -16,7 +15,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends Component {
 
+ 
+
+  //State will retain the information collected from the user to be 
+  //displayed as a summary on the last view.
   state = {
+    viewNum: 0,
     patient: [
       {
         fName:'',
@@ -31,7 +35,13 @@ class App extends Component {
 
 
 
-
+  handleDisplayView = (viewNum) =>{
+    this.setState( ()=>{
+      return{
+        viewNum: viewNum
+      };
+    })
+  }
   
 
   render() {
@@ -51,21 +61,24 @@ class App extends Component {
                 <Container>
                   <h1 style={{color:'#002854'}}>Patient Information Validation</h1>
                   <p style={{color:'#5e89b4'}}>
-                    This is a simple pateint input validation app.
+                    Made for Hamilton Health Sciences, Center for Data Science and Digital Health.
                   </p>
                 </Container>
               </Jumbotron>
             </Col>
           </Row>
+          <View changeView={this.state.viewNum} displayView={this.handleDisplayView}/>
           
-          <Row noGutters>
-            <h5 style={{margin:'80px 0 20px', color:'#002854'}}>Information</h5>
-            <p style={{color:'#5e89b4'}}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada convallis magna vel sagittis. Morbi et ex nec tellus vestibulum mollis non nec risus. Nulla rutrum feugiat consequat. Nullam venenatis, mauris vitae luctus euismod, turpis lectus laoreet nibh, eu sodales nunc neque luctus elit. Cras at posuere diam. Donec suscipit ipsum odio, vel egestas nulla faucibus commodo. Aliquam maximus, quam quis gravida tincidunt, lacus enim auctor urna, non consectetur felis eros vel nibh. Integer faucibus risus arcu. Praesent aliquet purus sed est aliquam cursus. Curabitur consectetur dapibus justo. Sed augue massa, facilisis a augue ac, finibus mattis neque. Mauris augue nisi, tincidunt ut justo et, vestibulum cursus dui.
-            </p>
-          </Row>
+        </Container>
+        
+        </div>
+    );
+  }
+}
 
-          <Row noGutters>
+export default App;
+
+{/* <Row noGutters>
             <h5 style={{margin:'80px 0 20px', color:'#002854', backgroundColor:'rgb(215, 241, 240)', padding: '10px', width:'100%'}}>Please enter your name below:</h5>
           </Row>
           
@@ -86,17 +99,4 @@ class App extends Component {
               </Row>
             </Form>
             </Col>
-          </Row>
-        </Container>
-        
-        </div>
-        
-          //<footer>Interview Project for CREATE - Made by Gord Bond</footer>
-      //</div>
-      
-    );
-  }
-}
-
-export default App;
-
+          </Row> */}
