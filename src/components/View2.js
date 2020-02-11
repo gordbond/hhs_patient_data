@@ -22,7 +22,7 @@ class View2 extends Component {
     handleNextButton = ()=>{
         //Captures numeric year, month and day of any year 1900-2099, month 1-12, day 1-31
         let datePattern = /^((?:19|20)[0-9]{2})-(0?[1-9]|10|11|12)-(0?[1-9]|[1-2][0-9]|3[0-1])$/
-        let ohipLength = /^[0-9]{10}$/
+        let ohipLength = /^(([0-9]{4})+(-[0-9]{3})+(-[0-9]{3}))$|^[0-9]{10}$/
         if(this.state.dob !== '' && this.state.hcNum !== '' && this.state.gender !== '')
         {
             //If all inputs are valid
