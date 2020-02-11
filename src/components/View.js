@@ -11,25 +11,27 @@ import View3 from './View3';
 export const SwitchView = (props) => {
 
         let Output; // save the rendered JSX to return
-
+        console.log("From View:" + props.changeView);
         // check the type of the component given in props
-        switch (props.changeView) {
+        switch (props.changeView.viewNum) {
+
 
         
             case 0:
-                Output = ( <View0 displayView={props.displayView}/>);
+                Output = ( <View0 changeView={props.changeView} displayView={props.displayView}/>);
+                
                 break;
 
             case 1:
-                Output = ( <View1 displayView={props.displayView}/>);
+                Output = ( <View1 changeView={props.changeView} displayView={props.displayView}/>);
                 break;
 
             case 2:
-                Output = ( <View2 displayView={props.displayView}/>);
+                Output = ( <View2 changeView={props.changeView} displayView={props.displayView}/>);
                 break;
 
             case 3:
-                Output = ( <View3 displayView={props.displayView}/>);
+                Output = ( <View3 changeView={props.changeView} displayView={props.displayView}/>);
                 break;
 
             default:

@@ -23,43 +23,57 @@ class App extends Component {
     viewNum: 0,
     patient: [
       {
+        id: 1,
         fName:'',
         lName:'',
         dob:'',
-        healthCardNum:'',
+        hcNum:0,
         gender:''
       }
     ]
-    
   };
 
+  prevId = 1;
 
-
-  handleDisplayView = (viewNum) =>{
-    this.setState( ()=>{
+  handleDisplayView = (data) =>{
+    console.log(data);
+   
+    this.setState( previousState =>{
       return{
-        viewNum: viewNum
+        viewNum: data.viewNum,
+        patient:[
+        {
+          fName: data.fName,
+          lName: data.lName,
+          hcNum: data.hcNum,
+          dob: data.dob,
+          gender: data.gender,
+          id: this.prevId +=1
+        }
+        , ...previousState.patient
+        ]
       };
     })
   }
+
+
   
 
   render() {
     console.log(this.state);
     return (
-      //<div class="container" style={{width: "80%"}}>
       <div id="main">
         <Container>
           <Row style={{borderBottom:'2px solid #8a8c8d'}}>
             <Col xs={2}>
               <div id="logoContainer">
-                <Image src="img/HHS_Logo.png" fluid />
+                <Image src="../../img/HHS_Logo.png"  fluid/>
               </div>
             </Col>
             <Col >
               <Jumbotron fluid style={{backgroundColor:'white'}}>
                 <Container>
-                  <h1 style={{color:'#002854'}}>Patient Information Validation</h1>
+                  <h1 style={{color:'#002854'}}>Patient Information and Validation</h1>
                   <p style={{color:'#5e89b4'}}>
                     Made for Hamilton Health Sciences, Center for Data Science and Digital Health.
                   </p>
@@ -67,7 +81,9 @@ class App extends Component {
               </Jumbotron>
             </Col>
           </Row>
-          <View changeView={this.state.viewNum} displayView={this.handleDisplayView}/>
+          <View 
+          changeView={this.state} 
+          displayView={this.handleDisplayView}/>
           
         </Container>
         
@@ -78,25 +94,3 @@ class App extends Component {
 
 export default App;
 
-{/* <Row noGutters>
-            <h5 style={{margin:'80px 0 20px', color:'#002854', backgroundColor:'rgb(215, 241, 240)', padding: '10px', width:'100%'}}>Please enter your name below:</h5>
-          </Row>
-          
-          
-          <Row>
-            <Col xs={12}>
-            <Form>
-              <Row>
-                <Col>
-                  <Form.Control placeholder="First name" />
-                </Col>
-                <Col>
-                  <Form.Control placeholder="Last name" />
-                </Col>
-              </Row>
-              <Row noGutters>
-                  <Button variant="info" style={{margin:'20px 0 20px'}}>Next</Button>
-              </Row>
-            </Form>
-            </Col>
-          </Row> */}

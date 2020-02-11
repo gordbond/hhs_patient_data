@@ -4,25 +4,32 @@ import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-// import Player from './Player';
-// import PlayerList from './PlayerList';
-// import AddPlayerForm from './AddPlayerForm';
-
-//style={{border:'red 2px solid'}}
 
 class View0 extends Component {
 
 
-  
+  state = {
+    viewNum: 1,
+    fName:'',
+    lName:'',
+    dob:'',
+    hcNum:'',
+    gender:''
+  }
 
 
   handleClickBegin = () =>{
-    this.props.displayView(1);
+    this.props.displayView({
+      viewNum: this.state.viewNum
+    });
   }
+
+
+  
   
 
   render() {
-    console.log(this.state);
+    console.log("From View0" + this.state);
     return (
         <Container id='bodyContent'>
             <Row noGutters>
