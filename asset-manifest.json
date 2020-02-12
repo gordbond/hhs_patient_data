@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/hhs_patient_data/static/css/main.9817bff4.chunk.css",
+    "main.js": "/hhs_patient_data/static/js/main.dcb010a4.chunk.js",
+    "main.js.map": "/hhs_patient_data/static/js/main.dcb010a4.chunk.js.map",
+    "runtime-main.js": "/hhs_patient_data/static/js/runtime-main.5335d8ba.js",
+    "runtime-main.js.map": "/hhs_patient_data/static/js/runtime-main.5335d8ba.js.map",
+    "static/css/2.47e06e2e.chunk.css": "/hhs_patient_data/static/css/2.47e06e2e.chunk.css",
+    "static/js/2.78037cc8.chunk.js": "/hhs_patient_data/static/js/2.78037cc8.chunk.js",
+    "static/js/2.78037cc8.chunk.js.map": "/hhs_patient_data/static/js/2.78037cc8.chunk.js.map",
+    "index.html": "/hhs_patient_data/index.html",
+    "precache-manifest.a11e1efa4f64f7cdd2db10644564d659.js": "/hhs_patient_data/precache-manifest.a11e1efa4f64f7cdd2db10644564d659.js",
+    "service-worker.js": "/hhs_patient_data/service-worker.js",
+    "static/css/2.47e06e2e.chunk.css.map": "/hhs_patient_data/static/css/2.47e06e2e.chunk.css.map",
+    "static/css/main.9817bff4.chunk.css.map": "/hhs_patient_data/static/css/main.9817bff4.chunk.css.map",
+    "static/js/2.78037cc8.chunk.js.LICENSE.txt": "/hhs_patient_data/static/js/2.78037cc8.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5335d8ba.js",
+    "static/css/2.47e06e2e.chunk.css",
+    "static/js/2.78037cc8.chunk.js",
+    "static/css/main.9817bff4.chunk.css",
+    "static/js/main.dcb010a4.chunk.js"
+  ]
+}
