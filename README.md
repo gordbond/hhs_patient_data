@@ -1,3 +1,21 @@
+
+# This is an app built to accept and validate user data for HHS
+
+### App accepts:
+First Name 
+Last Name
+Date of Birth
+OHIP number
+Gender
+
+Data fields cannot be empty
+MOD10 is used to validate the ohip number 
+Names cannot have numbers or characters other than " ' " (apostrophes)
+Date of birth uses a date picker which doesn't allow future dates
+Gender is constricted to a drop down list
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
