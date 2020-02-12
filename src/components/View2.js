@@ -23,7 +23,11 @@ class View2 extends Component {
         //Captures numeric year, month and day of any year 1900-2099, month 1-12, day 1-31
         let datePattern = /^((?:19|20)[0-9]{2})-(0?[1-9]|10|11|12)-(0?[1-9]|[1-2][0-9]|3[0-1])$/
         let ohipLength = /^(([0-9]{4})+(-[0-9]{3})+(-[0-9]{3}))$|^[0-9]{10}$/
-        if(this.state.dob !== '' && this.state.hcNum !== '' && this.state.gender !== '')
+
+        var dobCheck = new Date(this.state.dob);
+        var today = new Date();
+
+        if(this.state.dob !== '' && this.state.hcNum !== '' && this.state.gender !== '' && dobCheck<today)
         {
             //If all inputs are valid
             if(datePattern.test(this.state.dob) && ohipLength.test(this.state.hcNum) && this.validateOhip(this.state.hcNum))
@@ -70,6 +74,11 @@ class View2 extends Component {
             document.getElementById('genderError').style.display = 'block';
             document.getElementById('genderInput').style.border = 'red 1px solid';
         }
+        if(dobCheck >= today){
+            document.getElementById('dateError').innerHTML = 'Date cannot be in the future.';
+            document.getElementById('dateError').style.display = 'block';
+            document.getElementById('dateInput').style.border = 'red 1px solid';
+        }
         //If all inputs empty
         if(this.state.dob === '' && this.state.hcNum === '' && this.state.gender === ''){
             document.getElementById('dateError').style.display = 'block';
@@ -79,6 +88,7 @@ class View2 extends Component {
             document.getElementById('genderError').style.display = 'block';
             document.getElementById('genderInput').style.border = 'red 1px solid';
         }
+        
     }
 
 
@@ -106,9 +116,8 @@ class View2 extends Component {
             document.getElementById('genderInput').style.border = '#ced4da 1px solid';
         }
     }
-    //Prevents future date from being chosen
+    //Prevents future date from being chosen in date picker
     handleDateLoad = (e) => {
-        console.log("IT LOADED");
         var today = new Date();
         var dd = today.getDate();
         var mm = today.getMonth()+1; 
@@ -123,8 +132,18 @@ class View2 extends Component {
         document.getElementById("dateInput").setAttribute("max", today);
       
       today = yyyy + '-' + mm + '-' + dd;
-      console.log(today);
+      //console.log('TESTING: ' + today);
+      //console.log('TESTING: ' + document.getElementById("dateInput").getAttribute("max"));
     }
+
+    //Takes string
+    // checkDate = (date) => {
+    //     var today = new Date();
+    //     var dd = today.getDate();
+    //     var mm = today.getMonth()+1; 
+    //     var yyyy = today.getFullYear();
+    //     if()
+    // }
 
     validateOhip = (num) =>{
         num = num.replace(/-/g,'');
@@ -142,8 +161,6 @@ class View2 extends Component {
         for(i = 0; i<checksum.length; i++){
             checksumNum += parseInt(checksum.charAt(i));
         }
-        console.log("Checksum after first pass "+checksum)
-        console.log("ChecksumNUM after first pass "+checksumNum)
       
         check = (10-(checksumNum % 10)) % 10; // 0 when checksum is 10
         var checkDigit = num % 10;
@@ -184,7 +201,7 @@ class View2 extends Component {
                                 <Form.Control.Feedback 
                                 type="invalid" 
                                 id="dateError">
-                                    Date of birth is required.
+                                    Not a valid date.
                                 </Form.Control.Feedback>
                             </Form.Group>
                         </Row>
