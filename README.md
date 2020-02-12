@@ -1,3 +1,7 @@
+---
+permalink: /404.html
+---
+
 
 # This is an app built to accept and validate user data for HHS
 
