@@ -67,7 +67,7 @@ class App extends Component {
           <Row style={{borderBottom:'2px solid #8a8c8d'}}>
             <Col xs={12} sm={2}>
               <div id="logoContainer">
-                <Image src="../../img/HHS_Logo.png"  fluid/>
+                <Image src="img/HHS_Logo.png"  fluid/>
               </div>
             </Col>
             <Col >
